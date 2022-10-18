@@ -12,5 +12,4 @@ def read_file_p():
         p = file.readlines()
         for i in range(len(p)):
             if not p[i] == '\n': person.append(p[i])
-        # print(person)
     return person
