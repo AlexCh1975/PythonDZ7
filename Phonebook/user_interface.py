@@ -25,33 +25,41 @@ def ui_menu():
         label = input("Экспорт в файл: ")
         if label: data['export'] = 'export'
     return data
-        
-    # if len(data) > 0: 
-    #     return data
-    # data.update('search', 'search')
-    # input("Поиск по фамилии: ")
-    #return 
     
 # Ввод данных в phonebook
 
 def ui_interface():
     print("-----------------------------------------")
     person = []
-    print("Введите фамилию: ")
-    surname = input()
-    person.append(surname)
-    print("Введмте имя: ")
-    name = input()
-    person.append(name)
-    print("Введите номер телефона: ")
-    phone = input()
-    person.append(phone)
+    
+    while True:
+        print("Введите фамилию: ")
+        surname = input()
+        if surname.isalpha() and len(surname) > 1:
+            person.append(surname)
+            break
+        else: 
+            print("Неверная фамилия!")
+
+    while True:
+        print("Введмте имя: ")
+        name = input()
+        if name.isalpha() and len(name) > 1:
+            person.append(name)
+            break
+        else: 
+            print("Неверное имя!")
+
+    while True:
+        print("Введите номер телефона: ")
+        phone = input()
+        if phone.isdigit() and 5 < len(phone) < 12:
+            person.append(phone)
+            break
+        else: print("Неверный номер!")
+
     print("Описание: ")
     comment = input()
     person.append(comment)
 
     return person
-
-# def print_user(data):
-#     print("-----------------------------------------")
-#     print(data)
